@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
-export default function SoundQuality() {
+export default function SoundQuality(props) {
     const [quality, setQuality] = React.useState('');
 
 
