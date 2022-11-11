@@ -4,15 +4,19 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import {useEffect} from "react";
 
 
 export default function SoundQuality(props) {
-    const [quality, setQuality] = React.useState('');
-
 
     const handleChange = (event) => {
-        setQuality(event.target.value);
+        props.setState(event.target.value)
     };
+
+    useEffect(() => {
+        console.log(props.state);
+
+    }, [props.setState, props.state])
 
     return (
         <Box sx={{ maxWidth: 200 }}>
@@ -20,9 +24,7 @@ export default function SoundQuality(props) {
                 <InputLabel id="demo-simple-select-label" sx={{ marginLeft: 4 }}>Quality</InputLabel>
                 <Select
                     sx={{ marginLeft: 4 }}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={quality}
+                    value={props.value}
                     label="Normal"
                     onChange={handleChange}
                 >

@@ -14,6 +14,7 @@ function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isOnline, setIsOnline] = React.useState(false);
     const [volume, setVolume] = useState(1);
+    const [soundQuality, soundQualityLow] = useState(2)
 
   return (
     <div className="app">
@@ -39,7 +40,9 @@ function App() {
                 component={SoundQuality}
                 // state={isOnline}
                 // setState={setIsOnline}
-                // state={soundQuality}
+                state={soundQuality}
+                setState={soundQualityLow}
+
 
             />
 
@@ -50,17 +53,17 @@ function App() {
                 </p>
 
             )}
-            {volume && (
+            {volume > 80 && (
                 <p>
                     Listening to music at a high volume could cause long-term hearing loss.
                 </p>
             )}
 
-            {/*{soundQuality && (*/}
-            {/*    <p>*/}
-            {/*     Music quality is degraded. Increase quality if your connection allows it.*/}
-            {/*    </p>*/}
-            {/*)}*/}
+            {soundQuality === 1 && (
+                <p>
+                 Music quality is degraded. Increase quality if your connection allows it.
+                </p>
+            )}
 
 
         </div>

@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 const label = { inputProps: { 'aria-label': 'Online Now' } };
 
 export default function CardController(props) {
+    console.log(props)
     const {title, description, component: Component} = props;
 
 
@@ -23,7 +24,8 @@ export default function CardController(props) {
             </CardContent>
             <Component
             {...label}
-            onChange={() => props.setState(!props.state)}
+            state={props.state}
+            setState={props.setState}
             />
             <CardActions>
 
